@@ -1,0 +1,8 @@
+html.mm-opened{overflow:auto !important;}
+html.mm-opening .mm-menu.mm-front, html.mm-opening .mm-menu.mm-next{-webkit-box-shadow: -1px 0 1px 1px rgba(214, 48, 71,0.2);box-shadow: -1px 0 1px 1px rgba(214, 48, 71, 0.2); -moz-box-shadow: -1px 0 1px 1px rgba(50, 50, 50, 0.2);}
+.mm-menu{background-color: rgba(255, 90, 95, 0.8);}
+.mm-listview > li > a, .mm-listview > li > span {color: #FFF;text-transform: uppercase;}
+.mm-menu .mm-navbar > *, .mm-menu .mm-navbar a{color: #FFF;text-transform: uppercase;}
+.mm-close:after{color: #FFF;}
+.mm-menu em.mm-counter{color: #C7021A; line-height: 24px;}
+.mm-menu .mm-listview > li .mm-next:after, .mm-menu .mm-listview > li .mm-arrow:after{border-color: #C7021A;}

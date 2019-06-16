@@ -1,0 +1,4 @@
+.cookie{position:fixed; text-align:center; left:0; right:0; bottom:0; padding:10px 20px; color:#777; background-color:#F5F5F5; font-size:13px; border-top:1px solid #E4E4E4; z-index:1000;}
+.cookie a{text-decoration:underline;}
+.cookie a:hover{text-decoration:none;}
+.cookie .btn{display:inline-block; margin-left:10px; padding:4px 10px; vertical-align:0px;}

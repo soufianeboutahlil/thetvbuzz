@@ -1,0 +1,103 @@
+
+// Ouverture modal Blog
+$(window).load(function(){
+   setTimeout(function(){
+       $('#myModal').modal('show');
+   }, 5000);
+});
+
+
+function formatNumber(number)
+{
+    number = parseInt(number) + '';
+    x = number.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+    }
+    return x1 + x2;
+}
+$(document).ready(function(){
+	// formatage paypal
+	$("#paypal_amount").keyup(function() {
+        if (!/^[0-9]+$/.test($(this).val())) {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        }
+    });
+});
+
+function modalMsg(titremodal,msgmodal,connect){
+	$('#myModalSpeTitre').html(titremodal);
+	$('#myModalSpeMsg').html(msgmodal);
+	// Variable 'connect' indique s'il y les boutons de connection (y) ou pas (n)
+	if(connect=='y')
+	{
+		$('#myModalFooterSpe').empty().append('<a href="#customerLogin" class="btn btn-big btn-danger" style="padding:5px" data-dismiss="modal" aria-hidden="true" role="button" data-toggle="modal">Login</a>');
+	}
+	$('#modalMsg').modal('show');
+}
+
+// Fade l'image-Top lors du Scroll + Effet de parallax
+var target = $('.fadeTopJs');
+var targetHeight = target.outerHeight();
+
+if($('.fadeTopJs h1').length > 0)
+{
+	var targetParallax = $('.fadeTopJs h1').css('padding-top');
+	var targetParallax = targetParallax.substring(0, targetParallax.length-2);
+}
+	
+$(document).scroll(function(e){
+    var scrollPercent = (targetHeight - window.scrollY) / targetHeight;
+    if($('.fadeTopJs h1').length > 0)
+    {
+    	var scrollParallax = parseInt(targetParallax - window.scrollY);
+    }
+    if(scrollPercent >= 0){
+        target.css('opacity', scrollPercent);
+        if($('.fadeTopJs h1').length > 0)
+        {
+        	$('.fadeTopJs h1').css('paddingTop',scrollParallax+'px');
+        }
+    }
+});
+
+// Réduit le menu lors du Scroll
+var check_menu = function(){
+	var change_position = 30;
+	var new_position = window.scrollY;
+	if(window.scrollY >= change_position){
+		$('#headerContact').stop().animate({ 'marginTop': '-14px' }, 300, 'easeOutExpo' );
+		$('#logo').stop().animate({ 'marginTop': '-4px' }, 300, 'easeOutExpo' );
+		$('#header').addClass('scrolled').stop();
+		$('#header').animate({ 'height': 'auto', 'paddingBottom':'0px' }, 300, 'easeOutExpo' );
+		$('.btnMenu').stop().animate({ 'marginTop': '5px' }, 300, 'easeOutExpo' );
+	} else {
+		$('#headerContact').stop().animate({ 'marginTop': '0px' }, 300, 'easeOutExpo' );
+		$('#logo').stop().animate({ 'marginTop': '10px' }, 300, 'easeOutExpo' );
+		$('#header').removeClass('scrolled').stop().animate({ 'height': 'auto', 'paddingBottom':'12px' }, 300, 'easeOutExpo' );
+		$('.btnMenu').stop().animate({ 'marginTop': '18px' }, 300, 'easeOutExpo' );
+	}
+};
+$(document).ready(function(){
+	check_menu();
+});
+$(window).scroll(function(){
+	check_menu();
+});
+
+
+$(document).ready(function () {
+	
+	
+	
+});
+
+
+var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+if (!isSafari) {
+	$('head').append('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">')
+	$('head').append('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">')
+};
